@@ -1,0 +1,16 @@
+services:
+  dev:
+    build:
+      context: .
+    #image: tensorflow/tensorflow:latest-gpu-jupyter
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./docs:/work
