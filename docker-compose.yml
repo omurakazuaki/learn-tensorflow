@@ -1,8 +1,9 @@
+version: '3.9'
+
 services:
   dev:
     build:
       context: .
-    #image: tensorflow/tensorflow:latest-gpu-jupyter
     deploy:
       resources:
         reservations:
@@ -14,3 +15,11 @@ services:
       - "8888:8888"
     volumes:
       - ./docs:/work
+    command: ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token='${JUPITER_TOKEN}'"]
+
+  ngrok:
+    image: ngrok/ngrok
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: http dev:8888 --region jp --log=stdout
+    tty: true
