@@ -9,9 +9,10 @@ RUN pip install jupyterlab
 RUN pip install tensorflow
 RUN pip install torch torchvision torchtext torchaudio --index-url https://download.pytorch.org/whl/cu118
 RUN pip install scikit-learn
-RUN pip install pandas matplotlib torchviz
+RUN pip install pandas matplotlib torchviz torchinfo
 RUN pip install torchdata portalocker
 RUN apt-get install -y graphviz
+
 WORKDIR /work
 
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=''"]

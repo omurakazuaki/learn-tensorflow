@@ -1,3 +1,5 @@
 .ipynb_checkpoints
 *.h5
 docs/images/
+docs/data/
+docs/models/
