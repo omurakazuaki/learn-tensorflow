@@ -11,6 +11,7 @@ RUN pip install torch torchvision torchtext torchaudio --index-url https://downl
 RUN pip install scikit-learn
 RUN pip install pandas matplotlib torchviz torchinfo
 RUN pip install torchdata portalocker
+RUN pip install transformers seqeval
 RUN apt-get install -y graphviz
 
 WORKDIR /work
